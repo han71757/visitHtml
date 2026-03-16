@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+<title>🎯 地缘“化”讯</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f0f5fa;font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;color:#1e2f44;line-height:1.5;padding:20px 16px}
+.wrapper{max-width:1000px;margin:0 auto}
+.header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:16px;border-bottom:3px solid #1b5e9e}
+.logo{font-size:26px;font-weight:700;background:linear-gradient(145deg,#104c7d,#1f3a64);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
+.date-badge{background:#e1ebf7;color:#1b4b77;padding:6px 18px;border-radius:40px;font-size:14px;font-weight:600;box-shadow:inset 0 1px 3px rgba(0,0,0,0.05)}
+.section-title{margin-bottom:20px}
+.title-banner{display:inline-block;background:linear-gradient(135deg,#0f5090,#062c4f);color:#fff;font-size:22px;font-weight:700;padding:10px 32px 10px 26px;border-radius:0 40px 40px 0;box-shadow:0 8px 14px rgba(7,55,100,0.3);border-left:5px solid #ffbb33;letter-spacing:1px}
+.card{background:#fff;border-radius:28px;padding:26px 30px;margin-bottom:28px;box-shadow:0 20px 30px -10px rgba(2,48,86,0.2),0 6px 12px rgba(0,20,40,0.08);border:1px solid rgba(70,140,210,0.15);transition:all .25s ease}
+.card:hover{box-shadow:0 28px 38px -12px rgba(6,60,110,0.3);transform:translateY(-2px)}
+.news-title{display:block;font-size:22px;font-weight:650;color:#0b4f8e;text-decoration:none;line-height:1.4;margin-bottom:12px;padding-left:18px;border-left:8px solid #2670b5;transition:color .15s,border-color .15s}
+.news-title:hover{color:#bc3f2c;border-left-color:#bc3f2c}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 25px;margin-bottom:18px;font-size:15px}
+.source{background:#ddeeff;color:#134980;padding:5px 16px;border-radius:40px;font-weight:600;font-size:14px;letter-spacing:.4px;box-shadow:inset 0 1px 4px #b3cef0}
+.time{color:#4f6582;display:flex;align-items:center;gap:5px}
+.time::before{content:"⏱️";font-size:15px;opacity:.8}
+.news-summary{font-size:16px;color:#1f344a;line-height:1.8;background:#f8fbfe;padding:20px 24px;border-radius:24px;border-left:6px solid #84afe6;box-shadow:inset 0 2px 6px rgba(0,35,70,0.03);display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
+.table-section-title{font-size:21px;font-weight:700;color:#153e62;margin-bottom:16px;padding-bottom:8px;border-bottom:3px dashed #aac4e1;display:flex;align-items:center}
+.table-section-title::before{content:"📋 ";font-size:24px;margin-right:8px}
+.table-scroll{width:100%;overflow-x:auto;margin:20px 0 16px;border-radius:20px;border:1px solid #cfddee;background:#fff}
+table{width:100%;border-collapse:separate;border-spacing:0;min-width:640px;font-size:15px}
+th{background:#1f4068;color:#fff;font-weight:600;padding:16px 12px;font-size:15px;white-space:nowrap;text-align:center;border-right:1px solid #3e6190}
+th:last-child{border-right:none}
+td{padding:14px 10px;text-align:center;background:#fff;border-bottom:1px solid #dbe2ec}
+tbody tr:nth-child(even) td{background:#f9fcff}
+td:first-child{text-align:left;padding-left:18px;font-weight:500;color:#1d3b5a}
+td:nth-child(2){font-weight:700;color:#10355e}
+.change-up{font-weight:700;color:#b13d3d}
+.table-footer{background:#ecf3fa;color:#2f4b70;font-size:13.5px;padding:12px 20px;border-radius:30px;margin-top:18px;border-left:5px solid #3070b5;line-height:1.6}
+.footer{margin-top:40px;background:#e4eef9;border-radius:28px 28px 18px 18px;padding:20px 20px 18px;text-align:center;box-shadow:inset 0 1px 6px rgba(255,255,255,0.8),0 5px 12px rgba(0,35,70,0.12);border:1px solid rgba(90,150,210,0.25)}
+.footer-slogan{display:flex;justify-content:center;gap:20px;margin-bottom:16px;font-size:18px;font-weight:600;color:#1a4d7a;text-shadow:0 1px 3px rgba(255,255,255,0.7)}
+.btn-footer{display:inline-block;background:#1d5f9e;color:#fff !important;font-size:16px;font-weight:700;padding:12px 28px;border-radius:50px;text-decoration:none;box-shadow:0 8px 16px -5px rgba(0,60,120,0.3),0 4px 8px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);transition:all .2s;letter-spacing:.5px}
+.btn-footer:hover{background:#bc4b2e;transform:scale(1.02);box-shadow:0 12px 20px -8px #a13b1e}
+@media (max-width:600px){
+body{padding:12px 10px}
+.card{padding:20px 16px;border-radius:24px}
+.news-title{font-size:19px;padding-left:12px;border-left-width:6px}
+.news-summary{font-size:15px;padding:16px 18px 24px;display:block;-webkit-line-clamp:unset;-webkit-box-orient:unset;overflow:visible;text-overflow:clip;line-height:1.7}
+.meta{gap:10px 15px;font-size:14px}
+.source{padding:4px 12px}
+.logo{font-size:22px}
+.title-banner{font-size:19px;padding:8px 24px 8px 20px}
+.table-section-title{font-size:19px}
+td,th{padding:12px 6px;font-size:14px}
+td:first-child{padding-left:12px}
+.footer{padding:16px;margin-top:32px}
+.footer-brand{font-size:18px;margin-bottom:6px}
+.footer-slogan{font-size:16px;gap:15px}
+.btn-footer{font-size:15px;	padding:10px 22px;width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="header">
+<span class="logo">🎯 地缘“化”讯</span>
+<span class="date-badge">2026年03月13日</span>
+</div>
+
+<div class="section-title">
+<span class="title-banner">行业冲击</span>
+</div>
+
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032140816397037568?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=R8E8X83jOpM8wyd6fvjDkTiecaAqG1gz2XTZLrliMkk" target="_blank">【项目投资；区域发展】特朗普宣布投资3000亿美元建设美国50年来首座新炼油厂</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-12</span>
+    </div>
+    <div class="news-summary">当地时间3月10日，美国总统特朗普宣布计划在得克萨斯州布朗斯维尔建设一座新的石油炼油厂，该炼油厂将是美国50年来建设的首座新炼油厂。该项目预计总投资约3000亿美元，选址在布朗斯维尔港，将成为美国历史上规模最大的投资项目之一。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032369824372027392?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=k3_iFYxxRBWRB83WlPzVq6_uYretSz9tz_5raeDl3AM" target="_blank">【价格波动；国际贸易】伊朗袭击加剧紧张局势 油价突破每桶100美元</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-13</span>
+    </div>
+    <div class="news-summary">布伦特原油价格昨日上涨9.2%至100.46美元/桶，创下自2020年5月5日以来最大百分比涨幅。市场担忧霍尔木兹海峡石油流量受阻，高盛上调了对油价的预测。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032369824548188160?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=dpOB3dWJMmv94e38WJO7IKOvXfzhvgAz4oKE0rsgKzM" target="_blank">【政策调整；价格波动】特朗普政府考虑豁免琼斯法案以控制油价</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-13</span>
+    </div>
+    <div class="news-summary">美国特朗普政府正在考虑临时豁免琼斯法案30天，以缓解因伊朗战争引发的高油价问题。该法案规定美国港口之间的货物运输必须使用美国建造的船只，旨在保护本国造船业。若豁免实施，外国油轮可将燃料从得克萨斯州和路易斯安那州运往美国东海岸炼油厂。此举是特朗普政府审查多种方案以控制油价上涨的一部分。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032352209645793280?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=pOH_0opJLQropHuwRNVjB7O5dq5TVI0arvDaMPM0aes" target="_blank">【国际贸易；供需变化】中东局势加剧欧洲能源焦虑，中国风电订单激增至2030年</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-13</span>
+    </div>
+    <div class="news-summary">由于中东战火升级，欧洲对能源安全的焦虑加剧，转向风电等新能源需求激增。然而欧洲本土供应链难以应对，导致核心供应商合同被终止。在此背景下，中国风电企业凭借成本、规模和交付优势，成为欧洲能源重构的“救命补位者”。订单已排至2030年，部分欧洲企业甚至支付高额锁产费以确保供货。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032372341038313472?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=xDJ9vVsQe_F3ZkOeisLicESt0SlG6eLHDdGtICCBJ1s" target="_blank">【财政支持；价格波动】马来西亚将汽油补贴支出增至5.1亿美元以稳定油价</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-13</span>
+    </div>
+    <div class="news-summary">3月13日，马来西亚财政部长表示，为应对全球油价上涨，马来西亚政府将把汽油补贴支出从此前的7亿林吉特（约合1.78亿美元）增加至20亿林吉特（约合5.1亿美元），以维持RON95运输燃料每升1.99林吉特的固定价格。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032110616540016640?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=xNPudHR_CaO73gASWJYrX9Fu6tCYkdEm5mtDcdu-4_8" target="_blank">【价格波动；供需变化】国际局势与成本支撑推动三胺价格显著上涨</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-12</span>
+    </div>
+    <div class="news-summary">近期，中东局势紧张导致霍尔木兹海峡通行受阻，全球能源与化工供应链受到冲击，伊朗供应中断推升国际甲醇、尿素价格。3月9日布伦特原油价格飙升至119.5美元/桶，带动化工产业链成本上移，三聚氰胺价格因此获得外部风险溢价支撑。在国内供需面偏紧背景下，北方和南方三胺市场价格分别累计上涨400元/吨和200元/吨，目前国内市场均价上涨10.74%。短期内，三胺市场预计维持高位震荡，价格难以大幅回落。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032110617747976192?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=4gSrPADhWvuMlgKIg66_dX7-8pXL1ghwoUSjhCCt55I" target="_blank">【价格波动；供需变化】煤焦油价格暴涨至近两年高位 炭黑累计涨幅近千元</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-12</span>
+    </div>
+    <div class="news-summary">春节过后，煤焦油价格大幅上涨，升至近两年高位，带动炭黑价格累计上涨近1000元/吨。山西洪洞炭黑厂上调500元，浙江某炭黑企业本周累计调价600元。卡博特两次宣布涨价。供应稳定、局部区域紧张，叠加地缘冲突及市场需求增加，提振市场信心。轮胎企业如中策、玲珑、贵轮等也因原料涨价宣布提价。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032329561888976896?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=Q6bDNyA2uyiyHmGCTJzRs0DqgsHuZapNz5M2dX7p2zU" target="_blank">【价格波动；国际贸易】纽约天然气期货上涨，伊朗战争担忧加剧</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-12</span>
+    </div>
+    <div class="news-summary">3月11日，纽约商品交易所（NYMEX）和洲际交易所（ICE）天然气期货价格上涨。因伊朗与以色列爆发新的导弹袭击，且伊朗可能在霍尔木兹海峡布设水雷，市场对战争长期化及供应中断的担忧加剧。4月交割的NYMEX天然气期货收于3.209美元/百万Btu，较前一交易日上涨18.9美分。ICE天然气期货收于127.26便士/千立方英尺，上涨6.63便士。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2031997373695864832?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=yS1_O-mcy5VlnYMkxZ3wx9_S7OVTVKgn1kDpseLwdx0" target="_blank">【行业目录；供需变化】霍尔木兹海峡关闭暴露亚洲石化产业对中东石脑油的依赖风险</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-12</span>
+    </div>
+    <div class="news-summary">2026年2月下旬美以与伊朗紧张关系升级后，霍尔木兹海峡关闭，引发几十年来最严重的石化原料供应中断。海峡关闭导致油轮运输受阻、保险撤离和航运量锐减，多艘商业船只受损，亚洲主要石化企业已宣布不可抗力并削减产能。数据显示，亚洲石化行业对中东石脑油依赖度极高，此次事件暴露出供应链的结构性脆弱性。</div>
+</div>
+
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2032314459898966016?shareuse=1&tenantid=1&expireAt=1774692191&shareSignature=CkBXMfrpkfO8xnsJeWfPfPitRfnT0Qb7RA6OwrDHlZw" target="_blank">【供需变化；价格波动】中东局势引发对玉米市场的担忧</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-12</span>
+    </div>
+    <div class="news-summary">由于美国及以色列军队与伊朗之间的冲突升级，玉米等谷物商品市场出现不确定性与波动，主要由于燃料和化肥成本上升所致。伊朗是主要的化肥供应国，其油田遭轰炸导致油价升至100美元/桶以上，美国汽油价格上涨。此外，农民正值春季种植准备期，化肥供应问题尤为突出。专家指出，玉米种植成本较高，市场担忧农民可能减少玉米种植。同时，乙醇作为替代燃料可能为玉米市场提供一定希望。目前，玉米价格已出现短暂上涨，但随后回落。</div>
+</div>
+
+
+<div class="card">
+    <div class="table-section-title">🛢️ 油品/油轮运输市场</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>监测指标</th><th>最新数值</th><th>±涨跌额</th><th>±涨跌幅（%）</th></tr></thead>
+            <tbody>
+<tr>
+  <td>原油运价指数（BDTI)</td>
+  <td>2684</td>
+  <td class="">-151</td>
+  <td class="">-5.33</td>
+</tr>
+<tr>
+  <td>成品油运价指数（BCTI）</td>
+  <td>1471</td>
+  <td class="">-82</td>
+  <td class="">-5.28</td>
+</tr>
+<tr>
+  <td>WTI原油（美元/桶）</td>
+  <td>95.60</td>
+  <td class="">-0.80</td>
+  <td class="">-0.82</td>
+</tr>
+<tr>
+  <td>布伦特原油（美元/桶）</td>
+  <td>100.77</td>
+  <td class="">-0.98</td>
+  <td class="">-0.96</td>
+</tr></tbody>
+        </table>
+    </div>
+    <div class="table-footer">注：BDTI、BCTI最新数值为3月12日数据；WTI原油和布伦特原油最新价为3月13日 17:00 价格</div>
+</div>
+
+
+<div class="card">
+    <div class="table-section-title">⛴️ 干散货航运市场</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>监测指标</th><th>船型</th><th>最新数值</th><th>±涨跌额</th><th>±涨跌幅（%）</th></tr></thead>
+            <tbody>
+<tr>
+  <td>干散货运价指数（BDI）</td>
+  <td>多个干散货船型</td>
+  <td>1972</td>
+  <td class="change-up">+46</td>
+  <td class="change-up">+2.40</td>
+</tr>
+<tr>
+  <td>海岬型船运价指数（BCI）</td>
+  <td>海岬型船，主要运输铁矿石、煤炭等大宗散货</td>
+  <td>2721</td>
+  <td class="change-up">+147</td>
+  <td class="change-up">+5.70</td>
+</tr>
+<tr>
+  <td>灵便型船运价指数（BHSI）</td>
+  <td>灵便型船，常用于运输化肥、袋装货等</td>
+  <td>807</td>
+  <td class="">-15</td>
+  <td class="">-1.80</td>
+</tr></tbody>
+        </table>
+    </div>
+    <div class="table-footer">注：最新数值为3月12日数据，BDI、BCI、BHSI分别为衡量全球干散货运价波动、煤炭等大宗能源运价波动、化肥等小宗散货运价波动的主要指标</div>
+</div>
+
+
+<div class="card">
+    <div class="table-section-title">📦 主要商品价格</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>监测指标</th><th>最新数值</th><th>±涨跌额</th><th>±涨跌幅（%）</th></tr></thead>
+            <tbody>
+<tr>
+  <td>甲醇中国主港到岸价（美元/吨）</td>
+  <td>309</td>
+  <td class="">-5</td>
+  <td class="">-1.59</td>
+</tr>
+<tr>
+  <td>大连商品交易所液化石油气主力合约期货结算价（元/吨）</td>
+  <td>5712</td>
+  <td class="change-up">+27</td>
+  <td class="change-up">+0.47</td>
+</tr>
+<tr>
+  <td>乙二醇中国主港到岸价（美元/吨）</td>
+  <td>605</td>
+  <td class="">-2.50</td>
+  <td class="">-0.41</td>
+</tr>
+<tr>
+  <td>硫磺镇江港市场价（元/吨）</td>
+  <td>4635</td>
+  <td class="change-up">+5</td>
+  <td class="change-up">+0.11</td>
+</tr>
+<tr>
+  <td>尿素中国市场价（元/吨）</td>
+  <td>1851</td>
+  <td class="change-up">+5</td>
+  <td class="change-up">+0.27</td>
+</tr></tbody>
+        </table>
+    </div>
+    <div class="table-footer">注：最新价为3月13日价格</div>
+</div>
+
+
+<div class="card">
+    <div class="table-section-title">📦 集装箱航运市场</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>监测指标</th><th>最新数值</th><th>±涨跌额</th><th>±涨跌幅（%）</th></tr></thead>
+            <tbody>
+<tr>
+  <td>全球集装箱运价指数（FBX）</td>
+  <td>1752</td>
+  <td class="">-10</td>
+  <td class="">-0.57</td>
+</tr></tbody>
+        </table>
+    </div>
+    <div class="table-footer">注：最新数值为3月12日数据</div>
+</div>
+
+<div class="footer">
+<div class="footer-slogan">担当 前瞻 专业</div>
+<a href="https://vip.cheminfo.cn" target="_blank" class="btn-footer">进入中国化工信息网查看更多动态</a>
+</div>
+</div>
+</body>
+</html>
