@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<!-- 核心移动端适配：强制视口宽度，禁止用户缩放 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no"> <!-- 禁止识别手机号 -->
+<title>地缘化讯日报_2026-03-23</title>
+<style>
+/* 全局重置 */
+* {margin:0;padding:0;box-sizing:border-box;}
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* 禁止页面横向滚动 */
+    -webkit-overflow-scrolling: touch; /* 移动端顺滑滚动 */
+}
+body{background:#f0f5fa;font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;color:#1e2f44;line-height:1.5;padding:20px 16px}
+
+
+/* 页面容器：固定960px宽度，移动端自适应缩放 */
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 10px; /* 左右留白 */
+    /* 移动端适配：自动缩放容器到屏幕宽度 */
+    @media (max-width: 960px) {
+        width: 100% !important;
+        padding: 0 5px;
+    }
+}
+
+/* 头部样式 */
+.header {
+    margin-bottom:20px;
+    padding-bottom:15px;
+    border-bottom:3px solid #1b5e9e;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap: wrap; /* 移动端换行 */
+    gap: 10px; /* 换行后间距 */
+}
+.logo {
+    font-size:28px;
+    font-weight:bold;
+    background:linear-gradient(145deg,#104c7d,#1f3a64);
+    -webkit-background-clip:text;
+    color:transparent;
+    /* 移动端缩小字体 */
+    @media (max-width: 768px) {
+        font-size:22px;
+    }
+}
+.date-badge {
+    background:#e1ebf7;
+    color:#1b4b77;
+    padding:8px 20px;
+    border-radius:40px;
+    font-size:14px;
+    font-weight:bold;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        padding:6px 15px;
+        font-size:12px;
+    }
+}
+
+/* 标题横幅 */
+.title-banner {
+    display:inline-block;
+    background:linear-gradient(135deg,#0f5090,#062c4f);
+    color:#fff;
+    font-size:22px;
+    font-weight:bold;
+    padding:10px 30px;
+    border-radius:0 40px 40px 0;
+    margin-bottom:20px;
+    border-left:5px solid #ffbb33;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size:18px;
+        padding:8px 20px;
+        margin-bottom:15px;
+    }
+}
+
+/* 卡片样式 */
+.card {
+    background:#fff;
+    border-radius:15px;
+    padding:20px; /* 减少内边距适配移动端 */
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    /* 移动端优化阴影 */
+    @media (max-width: 768px) {
+        padding:15px;
+        margin-bottom:15px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.05);
+    }
+}
+
+/* 资讯卡片样式 */
+.news-title {
+    display:block;
+    font-size:20px;
+    font-weight:bold;
+    color:#0b4f8e;
+    text-decoration:none;
+    margin-bottom:10px;
+    padding-left:15px;
+    border-left:5px solid #2670b5;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size:16px;
+        margin-bottom:8px;
+        padding-left:10px;
+    }
+}
+.news-title:hover {
+    color:#bc3f2c;
+    border-left-color:#bc3f2c;
+}
+.meta {
+    margin-bottom:10px;
+    font-size:14px;
+    color:#666;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size:12px;
+        margin-bottom:8px;
+    }
+}
+.source {
+    background:#ddeeff;
+    color:#134980;
+    padding:4px 12px;
+    border-radius:20px;
+    margin-right:10px;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        padding:3px 8px;
+        margin-right:8px;
+        font-size:11px;
+    }
+}
+.time {
+    color:#666;
+}
+.news-summary {
+    font-size:14px;
+    line-height:1.8;
+    color:#333;
+    padding:10px;
+    background:#f8fbfe;
+    border-radius:8px;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size:12px;
+        padding:8px;
+        line-height:1.6;
+    }
+}
+
+/* 表格标题 */
+.table-section-title {
+    font-size:18px;
+    font-weight:bold;
+    color:#153e62;
+    margin-bottom:15px;
+    padding-bottom:8px;
+    border-bottom:2px dashed #aac4e1;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size:16px;
+        margin-bottom:10px;
+        padding-bottom:6px;
+    }
+}
+
+/* 表格容器（横向滚动）- 强化移动端体验 */
+.table-scroll {
+    width:100%;
+    overflow-x: auto;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #cfddee;
+    /* 移动端优化滚动体验 */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; /* 窄滚动条 */
+    /* 隐藏滚动条但保留功能（webkit内核） */
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 3px;
+    }
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        margin:8px 0;
+    }
+}
+
+/* 核心：表格样式 */
+table {
+    width:100%;
+    border-collapse:collapse;
+    min-width: 800px; /* 适配60px列宽 */
+}
+
+/* 表头样式（60px宽度 + 强制换行 + 高度自适应） */
+th {
+    background:#1f4068;
+    color:#fff;
+    font-weight:bold;
+    padding:12px 4px !important;
+    font-size:12px;
+    text-align:center;
+    border:1px solid #3e6190;
+    white-space:pre-wrap !important;
+    word-wrap:break-word !important;
+    word-break:break-all !important;
+    line-height:1.5;
+    /* 固定60px宽度 */
+    width:60px !important;
+    max-width:60px !important;
+    min-width:60px !important;
+    height:auto !important;
+    overflow:visible !important;
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+        padding:10px 3px !important;
+        font-size:11px;
+    }
+}
+
+/* 数据行样式（和表头保持一致） */
+td {
+    padding:12px 4px;
+    text-align:center;
+    border:1px solid #dbe2ec;
+    font-size:12px;
+    background:#fff;
+    white-space:pre-wrap !important;
+    word-wrap:break-word !important;
+    word-break:break-all !important;
+    line-height:1.5;
+    /* 固定60px宽度 */
+    width:60px !important;
+    max-width:60px !important;
+    min-width:60px !important;
+    height:auto !important;
+    overflow:visible !important;
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+        padding:10px 3px;
+        font-size:11px;
+    }
+}
+
+/* 第一列（日期列）样式 */
+td:first-child, th:first-child {
+    text-align:left;
+    padding-left:6px !important;
+    font-weight:bold;
+    width:60px !important;
+    max-width:60px !important;
+    min-width:60px !important;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        padding-left:4px !important;
+    }
+}
+
+/* 涨跌标红 */
+.red-up {
+    color:#d92d20;
+    font-weight:bold;
+}
+
+/* 备注样式（单独红色行） */
+.note-box {
+    margin-top:15px;
+    padding:12px 20px;
+    background:#fef5f5;
+    border-left:5px solid #d92d20;
+    border-radius:8px;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        margin-top:10px;
+        padding:10px 15px;
+    }
+}
+.red-note {
+    color:#d92d20;
+    font-weight:bold;
+    font-size:14px;
+    display:block;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size:12px;
+    }
+}
+
+/* 底部样式 - 完全匹配参考页面 */
+.footer{margin-top:40px;background:#e4eef9;border-radius:28px 28px 18px 18px;padding:20px 20px 18px;text-align:center;box-shadow:inset 0 1px 6px rgba(255,255,255,0.8),0 5px 12px rgba(0,35,70,0.12);border:1px solid rgba(90,150,210,0.25)}
+
+.footer-slogan {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0F5090;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    display: block;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size: 16px;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+    }
+    @media (max-width: 480px) {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+}
+.btn-footer {
+    display: inline-block;
+    background: linear-gradient(90deg, #0F5090 0%, #1E88E5 100%);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(15, 80, 144, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 12px 30px;
+        box-shadow: 0 3px 8px rgba(15, 80, 144, 0.2);
+    }
+    @media (max-width: 480px) {
+        font-size: 13px;
+        padding: 10px 20px;
+        width: 90%;
+        max-width: 300px;
+    }
+}
+.btn-footer:hover {
+    background: linear-gradient(90deg, #0C3F78 0%, #1976D2 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 80, 144, 0.4);
+}
+.btn-footer:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(15, 80, 144, 0.2);
+}
+
+/* 小屏手机额外适配（小于480px） */
+@media (max-width: 480px) {
+    .logo {font-size:20px;}
+    .title-banner {font-size:16px;padding:6px 15px;}
+    .card {padding:10px;}
+    th, td {
+        font-size:10px !important;
+        padding:8px 2px !important;
+    }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="logo">🎯 地缘化讯日报</div>
+        <div class="date-badge">2026-03-23</div>
+    </div>
+
+    <div class="title-banner">行业冲击</div>
+
+    <!-- 资讯部分 -->
+    
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2031209679696936960?shareuse=1&tenantid=1&expireAt=1774431362&shareSignature=f6JRJWSiU8ong0LlKpX2iVLuXTxiuEt-5IKPi7kUx-w" target="_blank">【供需变化；价格波动】伊朗战争扰乱供应链，药品、电子产品等价格或上涨</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-09</span>
+    </div>
+    <div class="news-summary">近日，由于伊朗战争，霍尔木兹海峡的油轮运输已基本停滞，对全球供应链造成广泛影响，涉及印度药品、亚洲半导体、中东化肥等产品。货轮滞留在波斯湾或绕道非洲南部，航空货运也受阻，导致多种商品可能出现短缺和价格上涨。雪城大学大学供应链实践教授帕特里克·彭菲尔德表示，随着冲突持续，供应链将面临更严重的中断。</div>
+</div>
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2031209679252340736?shareuse=1&tenantid=1&expireAt=1774431404&shareSignature=SSjZIuMAgoCrqZxw0b036nKu7pXt7Ukn7yt4aMLCVgY" target="_blank">【价格波动；国际贸易】伊朗战争升级引发油价飙升 各国政府紧急应对</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-09</span>
+    </div>
+    <div class="news-summary">近日，随着伊朗战争局势升级，油价创下历史新高，各国政府正紧急采取措施以减少对经济和消费者的影响。七国集团财政部长计划在周一的会议上讨论联合释放战略石油储备的可能性。韩国总统李在明宣布首次在近30年内实施燃油价格上限，并警告避免恐慌性购买。日本议员表示政府已指示国家石油储备库准备释放原油，但内阁秘书表示尚未做出决定。中国要求炼油厂暂停燃油出口。美国总统特朗普试图淡化油价上涨问题，并称油价上涨是为美国及世界安全付出的小代价。布伦特原油价格单日上涨25%，并创下单日最大涨幅记录。</div>
+</div>
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2031189549130694656?shareuse=1&tenantid=1&expireAt=1774431426&shareSignature=0OHFASZkeW-zDaaqrmcgyiDMTevB4-QBOwo7VXruhYE" target="_blank">【国际贸易；合规监管】油气行业敦促欧盟暂停甲烷排放法规</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-09</span>
+    </div>
+    <div class="news-summary">3月9日，布鲁塞尔讯，欧洲油气企业敦促欧盟暂停其甲烷排放法规，警告该法规可能在明年执行更严格条款时扰乱欧洲的燃料进口。此前，美国政府要求欧盟豁免美国油气公司。欧盟已提供更灵活的合规选项，但拒绝撤销该政策，因其是气候战略的核心内容。根据Wood Mackenzie的一项行业支持研究，到2027年，欧盟最多有43%的天然气进口和87%的原油进口可能难以满足欧盟规定，导致进口商面临高额罚款并可能引发供应缺口。IOGP和FuelsEurope呼吁欧盟暂停并修改该法规。</div>
+</div>
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2031209679512387584?shareuse=1&tenantid=1&expireAt=1774431444&shareSignature=xbQ_P3Y_CDp1lUKCOGJnpxx-8YjXzcTVbUCpXf9XFe8" target="_blank">【价格波动；国际贸易】中东冲突升级致亚洲股市下跌，中国石化期货价格飙升</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-09</span>
+    </div>
+    <div class="news-summary">3月9日，由于中东局势紧张导致霍尔木兹海峡交通基本停滞，国际油价突破每桶100美元。亚洲主要股指普遍下跌，日本日经225指数下跌6.7%，韩国KOSPI指数暴跌8.1%，新加坡STI指数下跌1.95%。中国化工期货市场表现强劲，甲醇期货价格上涨14.01%，苯和苯乙烯单体（SM）分别上涨10%和9%。伊朗与以色列及美国在周末互有军事行动，进一步加剧地区紧张局势。</div>
+</div>
+<div class="card">
+    <a class="news-title" href="https://vip.cheminfo.cn/news/details/2030830936281300992?shareuse=1&tenantid=1&expireAt=1774431463&shareSignature=0ZZzdFIC_ljm7WUOd0xlecGrJczIC6qxZR2ixxCAuk8" target="_blank">【供需变化；国际贸易】印度澄清肥料库存充足 美以伊冲突未影响关键肥料供应</a>
+    <div class="meta">
+        <span class="source">中国化工信息网</span>
+        <span class="time">2026-03-08</span>
+    </div>
+    <div class="news-summary">尽管美国与以色列及伊朗之间的战争导致供应中断，印度政府澄清肥料库存充足，农民无需担忧。根据印度主要肥料供应商Fertilizers and Chemicals Travancore Limited（FACT）的高管表示，印度当前尿素、磷酸二铵（DAP）和重过磷酸钙（DSP）供应充足，可满足即将到来的Kharif种植季需求。该高管警告，若冲突持续六个月以上，可能影响下一季Rabi作物的肥料供应。</div>
+</div>
+
+    <!-- 表格部分 -->
+    
+<div class="card">
+    <div class="table-section-title">🛢️ 油品/油轮运输市场</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>日期</th><th>原油运价指数（BDTI)</th><th>成品油运价指数（BCTI）</th><th>布伦特原油（美元/桶）</th><th>WTI原油（美元/桶）</th></tr></thead>
+            <tbody><tr><td style="width:60px;">2026-03-20</td><td class="red-up" style="width:60px;">2962</td><td class="red-up" style="width:60px;">1616</td><td class="red-up" style="width:60px;">112.19</td><td class="red-up" style="width:60px;">98.32</td></tr><tr><td style="width:60px;">2026-03-19</td><td class="red-up" style="width:60px;">2842</td><td class="red-up" style="width:60px;">1549</td><td class="red-up" style="width:60px;">108.65</td><td class="red-up" style="width:60px;">96.14</td></tr><tr><td style="width:60px;">2026-03-18</td><td class="red-up" style="width:60px;">2743</td><td class="red-up" style="width:60px;">1510</td><td class="red-up" style="width:60px;">107.38</td><td class="red-up" style="width:60px;">96.32</td></tr><tr><td style="width:60px;">±涨跌额</td><td class="red-up" style="width:60px;">+120</td><td class="red-up" style="width:60px;">+67</td><td class="red-up" style="width:60px;">+3.54</td><td class="red-up" style="width:60px;">+2.18</td></tr><tr><td style="width:60px;">±涨跌幅（%）</td><td class="red-up" style="width:60px;">+4.22</td><td class="red-up" style="width:60px;">+4.33</td><td class="red-up" style="width:60px;">+3.26</td><td class="red-up" style="width:60px;">+2.27</td></tr></tbody>
+        </table>
+    </div>
+    
+<div class="note-box">
+    <span class="red-note">注：涨跌额和涨跌幅为3月20日环比情况</span>
+</div>
+</div>
+<div class="card">
+    <div class="table-section-title">⛴️ 干散货航运市场</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>指数</th><th>干散货运价指数（BDI）</th><th>海岬型船运价指数（BCI）</th><th>灵便型船运价指数（BHSI）</th></tr></thead>
+            <tbody><tr><td style="width:60px;">船型</td><td style="width:60px;">多个干散货船型</td><td style="width:60px;">海岬型船，主要运输铁矿石、煤炭等大宗散货</td><td style="width:60px;">灵便型船，常用于运输化肥、袋装货等</td></tr><tr><td style="width:60px;">2026-03-20</td><td class="red-up" style="width:60px;">2056</td><td class="red-up" style="width:60px;">2971</td><td class="red-up" style="width:60px;">744</td></tr><tr><td style="width:60px;">2026-03-19</td><td class="red-up" style="width:60px;">2057</td><td class="red-up" style="width:60px;">2965</td><td class="red-up" style="width:60px;">749</td></tr><tr><td style="width:60px;">2026-03-18</td><td class="red-up" style="width:60px;">2064</td><td class="red-up" style="width:60px;">2986</td><td class="red-up" style="width:60px;">759</td></tr><tr><td style="width:60px;">±涨跌额</td><td style="width:60px;">-1</td><td class="red-up" style="width:60px;">+6</td><td style="width:60px;">-5</td></tr><tr><td style="width:60px;">±涨跌幅（%）</td><td style="width:60px;">-0.05</td><td class="red-up" style="width:60px;">+0.20</td><td style="width:60px;">-0.67</td></tr></tbody>
+        </table>
+    </div>
+    
+<div class="note-box">
+    <span class="red-note">注：涨跌额和涨跌幅为3月20日环比情况</span>
+</div>
+</div>
+<div class="card">
+    <div class="table-section-title">📦 主要商品价格</div>
+    <div class="meta"><span class="source">中国化工信息网</span></div>
+    <div class="table-scroll">
+        <table>
+            <thead><tr><th>日期</th><th>荷兰TTF管道气主力合约期货结算价（美元/mmbtu）</th><th>大连商品交易所液化石油气主力合约期货结算价（元/吨）</th><th>乙二醇中国主港到岸价（美元/吨）</th><th>硫磺镇江港市场价（元/吨）</th><th>甲醇中国主港到岸价（美元/吨）</th></tr></thead>
+            <tbody><tr><td style="width:60px;">2026-03-23</td><td style="width:60px;">-</td><td class="red-up" style="width:60px;">6998</td><td class="red-up" style="width:60px;">657.50</td><td class="red-up" style="width:60px;">5685</td><td class="red-up" style="width:60px;">376</td></tr><tr><td style="width:60px;">2026-03-20</td><td class="red-up" style="width:60px;">19.97</td><td class="red-up" style="width:60px;">6527</td><td class="red-up" style="width:60px;">621.50</td><td class="red-up" style="width:60px;">5290</td><td class="red-up" style="width:60px;">371</td></tr><tr><td style="width:60px;">2026-03-19</td><td class="red-up" style="width:60px;">21.03</td><td class="red-up" style="width:60px;">6135</td><td class="red-up" style="width:60px;">630</td><td class="red-up" style="width:60px;">5075</td><td class="red-up" style="width:60px;">368.50</td></tr><tr><td style="width:60px;">±涨跌额</td><td style="width:60px;">-1.06</td><td class="red-up" style="width:60px;">+471</td><td class="red-up" style="width:60px;">+36</td><td class="red-up" style="width:60px;">+395</td><td class="red-up" style="width:60px;">+5</td></tr><tr><td style="width:60px;">±涨跌幅（%）</td><td style="width:60px;">-5.04</td><td class="red-up" style="width:60px;">+7.22</td><td class="red-up" style="width:60px;">+5.79</td><td class="red-up" style="width:60px;">+7.47</td><td class="red-up" style="width:60px;">+1.35</td></tr></tbody>
+        </table>
+    </div>
+    
+<div class="note-box">
+    <span class="red-note">注：荷兰TTF管道气涨跌额和涨跌幅为3月20日环比情况；其他指标涨跌额和涨跌幅为3月23日环比情况</span>
+</div>
+</div>
+
+    <!-- 底部样式 - 完全匹配参考页面 -->
+    <div class="footer">
+        <div class="footer-slogan">担当 前瞻 专业</div>
+        <a href="https://vip.cheminfo.cn" target="_blank" class="btn-footer">进入中国化工信息网查看更多动态</a>
+    </div>
+</div>
+</body>
+</html>
