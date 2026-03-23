@@ -2,386 +2,49 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<!-- 核心移动端适配：强制视口宽度，禁止用户缩放 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no"> <!-- 禁止识别手机号 -->
-<title>地缘“化”讯_2026年03月23日</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes">
+<title>🎯 地缘“化”讯</title>
 <style>
-/* 全局重置 */
-* {margin:0;padding:0;box-sizing:border-box;}
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* 禁止页面横向滚动 */
-    -webkit-overflow-scrolling: touch; /* 移动端顺滑滚动 */
-}
+*{margin:0;padding:0;box-sizing:border-box}
 body{background:#f0f5fa;font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;color:#1e2f44;line-height:1.5;padding:20px 16px}
-
-
-/* 页面容器：固定960px宽度，移动端自适应缩放 */
-.wrapper {
-    width: 960px;
-    margin: 0 auto;
-    padding: 0 10px; /* 左右留白 */
-    /* 移动端适配：自动缩放容器到屏幕宽度 */
-    @media (max-width: 960px) {
-        width: 100% !important;
-        padding: 0 5px;
-    }
-}
-
-/* 头部样式 */
-.header {
-    margin-bottom:20px;
-    padding-bottom:15px;
-    border-bottom:3px solid #1b5e9e;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap: wrap; /* 移动端换行 */
-    gap: 10px; /* 换行后间距 */
-}
-.logo {
-    font-size:28px;
-    font-weight:bold;
-    background:linear-gradient(145deg,#104c7d,#1f3a64);
-    -webkit-background-clip:text;
-    color:transparent;
-    /* 移动端缩小字体 */
-    @media (max-width: 768px) {
-        font-size:22px;
-    }
-}
-.date-badge {
-    background:#e1ebf7;
-    color:#1b4b77;
-    padding:8px 20px;
-    border-radius:40px;
-    font-size:16px;
-    font-weight:bold;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        padding:6px 15px;
-        font-size:14px;
-    }
-}
-
-/* 标题横幅 */
-.title-banner {
-    display:inline-block;
-    background:linear-gradient(135deg,#0f5090,#062c4f);
-    color:#fff;
-    font-size:22px;
-    font-weight:bold;
-    padding:10px 30px;
-    border-radius:0 40px 40px 0;
-    margin-bottom:20px;
-    border-left:5px solid #ffbb33;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size:18px;
-        padding:8px 20px;
-        margin-bottom:15px;
-    }
-}
-
-/* 卡片样式 */
-.card {
-    background:#fff;
-    border-radius:15px;
-    padding:20px; /* 减少内边距适配移动端 */
-    margin-bottom:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    /* 移动端优化阴影 */
-    @media (max-width: 768px) {
-        padding:15px;
-        margin-bottom:15px;
-        box-shadow:0 3px 10px rgba(0,0,0,0.05);
-    }
-}
-
-/* 资讯卡片样式 */
-.news-title {
-    display:block;
-    font-size:22px;
-    font-weight:bold;
-    color:#0b4f8e;
-    text-decoration:none;
-    margin-bottom:10px;
-    padding-left:15px;
-    border-left:5px solid #2670b5;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size:16px;
-        margin-bottom:8px;
-        padding-left:10px;
-    }
-}
-.news-title:hover {
-    color:#bc3f2c;
-    border-left-color:#bc3f2c;
-}
-.meta {
-    margin-bottom:10px;
-    font-size:16px;
-    color:#666;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size:16px;
-        margin-bottom:8px;
-    }
-}
-.source {
-    background:#ddeeff;
-    color:#134980;
-    padding:4px 12px;
-    border-radius:20px;
-    margin-right:10px;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        padding:3px 8px;
-        margin-right:8px;
-        font-size:14px;
-    }
-}
-.time {
-    color:#666;
-}
-.news-summary {
-    font-size:16px;
-    line-height:1.8;
-    color:#333;
-    padding:10px;
-    background:#f8fbfe;
-    border-radius:8px;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size:16px;
-        padding:8px;
-        line-height:1.6;
-    }
-}
-
-/* 表格标题 */
-.table-section-title {
-    font-size:18px;
-    font-weight:bold;
-    color:#153e62;
-    margin-bottom:15px;
-    padding-bottom:8px;
-    border-bottom:2px dashed #aac4e1;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size:16px;
-        margin-bottom:10px;
-        padding-bottom:6px;
-    }
-}
-
-/* 表格容器（横向滚动）- 强化移动端体验 */
-.table-scroll {
-    width:100%;
-    overflow-x: auto;
-    margin:10px 0;
-    border-radius:8px;
-    border:1px solid #cfddee;
-    /* 移动端优化滚动体验 */
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin; /* 窄滚动条 */
-    /* 隐藏滚动条但保留功能（webkit内核） */
-    &::-webkit-scrollbar {
-        height: 6px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 3px;
-    }
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        margin:8px 0;
-    }
-}
-
-/* 核心：表格样式 */
-table {
-    width:100%;
-    border-collapse:collapse;
-    min-width: 800px; /* 适配60px列宽 */
-}
-
-/* 表头样式（60px宽度 + 强制换行 + 高度自适应） */
-th {
-    background:#1f4068;
-    color:#fff;
-    font-weight:bold;
-    padding:12px 4px !important;
-    font-size:16px;
-    text-align:center;
-    border:1px solid #3e6190;
-    white-space:pre-wrap !important;
-    word-wrap:break-word !important;
-    word-break:break-all !important;
-    line-height:1.5;
-    /* 固定60px宽度 */
-    width:60px !important;
-    max-width:60px !important;
-    min-width:60px !important;
-    height:auto !important;
-    overflow:visible !important;
-    /* 移动端优化 */
-    @media (max-width: 768px) {
-        padding:10px 3px !important;
-        font-size:14px;
-    }
-}
-
-/* 数据行样式（和表头保持一致） */
-td {
-    padding:12px 4px;
-    text-align:center;
-    border:1px solid #dbe2ec;
-    font-size:16px;
-    background:#fff;
-    white-space:pre-wrap !important;
-    word-wrap:break-word !important;
-    word-break:break-all !important;
-    line-height:1.5;
-    /* 固定60px宽度 */
-    width:60px !important;
-    max-width:60px !important;
-    min-width:60px !important;
-    height:auto !important;
-    overflow:visible !important;
-    /* 移动端优化 */
-    @media (max-width: 768px) {
-        padding:10px 3px;
-        font-size:11px;
-    }
-}
-
-/* 第一列（日期列）样式 */
-td:first-child, th:first-child {
-    text-align:left;
-    padding-left:6px !important;
-    font-weight:bold;
-    width:60px !important;
-    max-width:60px !important;
-    min-width:60px !important;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        padding-left:4px !important;
-    }
-}
-
-/* 涨跌标红 */
-.red-up {
-    color:#d92d20;
-    font-weight:bold;
-}
-
-/* 备注样式（单独红色行） */
-.note-box {
-    margin-top:15px;
-    padding:12px 20px;
-    background:#fef5f5;
-    border-left:5px solid #d92d20;
-    border-radius:8px;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        margin-top:10px;
-        padding:10px 15px;
-    }
-}
-.red-note {
-    color:#d92d20;
-    font-weight:bold;
-    font-size:14px;
-    display:block;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size:12px;
-    }
-}
-
-/* 底部样式 - 完全匹配参考页面 */
-.footer{margin-top:40px;background:#e4eef9;border-radius:28px 28px 18px 18px;padding:20px 20px 18px;text-align:center;box-shadow:inset 0 1px 6px rgba(255,255,255,0.8),0 5px 12px rgba(0,35,70,0.12);border:1px solid rgba(90,150,210,0.25)}
-
-.footer-slogan {
-    font-size: 20px;
-    font-weight: 600;
-    color: #0F5090;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-    display: block;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size: 16px;
-        margin-bottom: 18px;
-        letter-spacing: 1px;
-    }
-    @media (max-width: 480px) {
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-}
-.btn-footer {
-    display: inline-block;
-    background: linear-gradient(90deg, #0F5090 0%, #1E88E5 100%);
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 14px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(15, 80, 144, 0.3);
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-        font-size: 14px;
-        padding: 12px 30px;
-        box-shadow: 0 3px 8px rgba(15, 80, 144, 0.2);
-    }
-    @media (max-width: 480px) {
-        font-size: 14px;
-        padding: 10px 20px;
-        width: 90%;
-        max-width: 300px;
-    }
-}
-.btn-footer:hover {
-    background: linear-gradient(90deg, #0C3F78 0%, #1976D2 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(15, 80, 144, 0.4);
-}
-.btn-footer:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(15, 80, 144, 0.2);
-}
-
-/* 小屏手机额外适配（小于480px） */
-@media (max-width: 480px) {
-    .logo {font-size:20px;}
-    .title-banner {font-size:16px;padding:6px 15px;}
-    .card {padding:10px;}
-    th, td {
-        font-size:14px !important;
-        padding:8px 2px !important;
-    }
-}
+.wrapper{max-width:1000px;margin:0 auto}
+.header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:16px;border-bottom:3px solid #1b5e9e}
+.logo{font-size:26px;font-weight:700;background:linear-gradient(145deg,#104c7d,#1f3a64);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
+.date-badge{background:#e1ebf7;color:#1b4b77;padding:6px 18px;border-radius:40px;font-size:14px;font-weight:600;box-shadow:inset 0 1px 3px rgba(0,0,0,0.05)}
+.section-title{margin-bottom:20px}
+.title-banner{display:inline-block;background:linear-gradient(135deg,#0f5090,#062c4f);color:#fff;font-size:22px;font-weight:700;padding:10px 32px 10px 26px;border-radius:0 40px 40px 0;box-shadow:0 8px 14px rgba(7,55,100,0.3);border-left:5px solid #ffbb33;letter-spacing:1px}
+.card{background:#fff;border-radius:28px;padding:26px 30px;margin-bottom:28px;box-shadow:0 20px 30px -10px rgba(2,48,86,0.2),0 6px 12px rgba(0,20,40,0.08);border:1px solid rgba(70,140,210,0.15);transition:all .25s ease}
+.news-title{display:block;font-size:22px;font-weight:650;color:#0b4f8e;text-decoration:none;line-height:1.4;margin-bottom:12px;padding-left:18px;border-left:8px solid #2670b5}
+.news-title:hover{color:#bc3f2c;border-left-color:#bc3f2c}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 25px;margin-bottom:18px;font-size:15px}
+.source{background:#ddeeff;color:#134980;padding:5px 16px;border-radius:40px;font-weight:600;font-size:14px;box-shadow:inset 0 1px 4px #b3cef0}
+.time{color:#4f6582}
+.time::before{content:"⏱️ ";font-size:15px}
+.news-summary{font-size:16px;line-height:1.8;background:#f8fbfe;padding:20px 24px;border-radius:24px;border-left:6px solid #84afe6}
+.table-section-title{font-size:21px;font-weight:700;color:#153e62;margin-bottom:16px;padding-bottom:8px;border-bottom:3px dashed #aac4e1}
+.table-scroll{width:100%;overflow-x:auto;margin:20px 0 16px;border-radius:20px;border:1px solid #cfddee;background:#fff}
+th{background:#1f4068;color:#fff;font-weight:600;padding:16px 12px;font-size:15px;text-align:center;border:1px solid #3e6190}
+td{padding:14px 10px;text-align:center;background:#fff;border:1px solid #dbe2ec}
+tbody tr:nth-child(even) td{background:#f9fcff}
+td:first-child{text-align:left;padding-left:18px;font-weight:500;color:#1d3b5a}
+td:nth-child(2){font-weight:700;color:#10355e}
+.change-up{font-weight:700;color:#b13d3d}
+.table-footer{background:#ecf3fa;color:red;font-size:13.5px;padding:12px 20px;border-radius:30px;margin-top:18px;border-left:5px solid #3070b5}
+.footer{margin-top:40px;background:#e4eef9;border-radius:28px;padding:20px;text-align:center}
+.footer-slogan{font-size:18px;font-weight:600;color:#1a4d7a;margin-bottom:16px}
+.btn-footer{display:inline-block;background:#1d5f9e;color:#fff;font-size:16px;font-weight:700;padding:12px 28px;border-radius:50px;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="wrapper">
-    <div class="header">
-        <div class="logo">🎯 地缘“化”讯</div>
-        <div class="date-badge">2026年03月23日</div>
-    </div>
+<div class="header">
+<span class="logo">🎯 地缘“化”讯</span>
+<span class="date-badge">2026年03月23日</span>
+</div>
+<div class="section-title">
+<span class="title-banner">行业冲击</span>
+</div>
 
-    <div class="title-banner">行业冲击</div>
-
-    <!-- 资讯部分 -->
-    
 <div class="card">
     <a class="news-title" href="https://vip.cheminfo.cn/news/details/2036001257825107968?shareuse=1&tenantid=1&expireAt=1775556413&shareSignature=4sXgZwdJ5MHtiNvEqroyheCyiZUuMhC3hk0gbQZBHjg" target="_blank">【价格波动；国际贸易】伊朗战争冲击全球能源市场，美国能源优势削弱</a>
     <div class="meta">
@@ -447,56 +110,55 @@ td:first-child, th:first-child {
     <div class="news-summary">3月20日，美国财政部发布临时许可，授权30天内允许已装载伊朗原油的船舶进行原油和石油产品的销售，以应对霍尔木兹海峡航运中断导致的供应短缺。该许可由财政部海外资产控制办公室发布，涵盖相关船舶的靠泊、锚定、船员安全、紧急维修及环境服务等交易，并允许将伊朗原油和石油产品进口至美国。美国财政部长斯科特·贝森特强调，该授权仅限于已在途原油，不包括新采购或生产，同时表示伊朗难以获得销售收益，美国将继续对伊施加最大压力。</div>
 </div>
 
-    <!-- 表格部分 -->
-    
 <div class="card">
     <div class="table-section-title">🛢️ 油品/油轮运输市场</div>
     <div class="meta"><span class="source">中国化工信息网</span></div>
     <div class="table-scroll">
-        <table>
-            <thead><tr><th>日期</th><th>原油运价指数（BDTI)</th><th>成品油运价指数（BCTI）</th><th>布伦特原油（美元/桶）</th><th>WTI原油（美元/桶）</th></tr></thead>
-            <tbody><tr><td style="width:60px;">2026-03-20</td><td class="red-up" style="width:60px;">2962</td><td class="red-up" style="width:60px;">1616</td><td class="red-up" style="width:60px;">112.19</td><td class="red-up" style="width:60px;">98.32</td></tr><tr><td style="width:60px;">2026-03-19</td><td class="red-up" style="width:60px;">2842</td><td class="red-up" style="width:60px;">1549</td><td class="red-up" style="width:60px;">108.65</td><td class="red-up" style="width:60px;">96.14</td></tr><tr><td style="width:60px;">2026-03-18</td><td class="red-up" style="width:60px;">2743</td><td class="red-up" style="width:60px;">1510</td><td class="red-up" style="width:60px;">107.38</td><td class="red-up" style="width:60px;">96.32</td></tr><tr><td style="width:60px;">±涨跌额</td><td class="red-up" style="width:60px;">+120</td><td class="red-up" style="width:60px;">+67</td><td class="red-up" style="width:60px;">+3.54</td><td class="red-up" style="width:60px;">+2.18</td></tr><tr><td style="width:60px;">±涨跌幅（%）</td><td class="red-up" style="width:60px;">+4.22</td><td class="red-up" style="width:60px;">+4.33</td><td class="red-up" style="width:60px;">+3.26</td><td class="red-up" style="width:60px;">+2.27</td></tr></tbody>
+        <table style="border-collapse:collapse; width:100%; min-width:640px; font-size:15px;">
+            <thead>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">日期</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">原油运价指数（BDTI)</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">成品油运价指数（BCTI）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">布伦特原油（美元/桶）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">WTI原油（美元/桶）</th></thead><tbody><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-20</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2962</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">1616</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">112.19</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">98.32</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-19</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2842</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">1549</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">108.65</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">96.14</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-18</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2743</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">1510</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">107.38</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">96.32</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">±涨跌额</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+120</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+67</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+3.54</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+2.18</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">±涨跌幅（%）</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+4.22</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+4.33</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+3.26</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+2.27</td></tr></tbody>
         </table>
     </div>
-    
-<div class="note-box">
-    <span class="red-note">注：涨跌额和涨跌幅为3月20日环比情况</span>
-</div>
+    <div class="table-footer">注：涨跌额和涨跌幅为3月20日环比情况</div>
 </div>
 <div class="card">
     <div class="table-section-title">⛴️ 干散货航运市场</div>
     <div class="meta"><span class="source">中国化工信息网</span></div>
     <div class="table-scroll">
-        <table>
-            <thead><tr><th>指数</th><th>干散货运价指数（BDI）</th><th>海岬型船运价指数（BCI）</th><th>灵便型船运价指数（BHSI）</th></tr></thead>
-            <tbody><tr><td style="width:60px;">船型</td><td style="width:60px;">多个干散货船型</td><td style="width:60px;">海岬型船，主要运输铁矿石、煤炭等大宗散货</td><td style="width:60px;">灵便型船，常用于运输化肥、袋装货等</td></tr><tr><td style="width:60px;">2026-03-20</td><td class="red-up" style="width:60px;">2056</td><td class="red-up" style="width:60px;">2971</td><td class="red-up" style="width:60px;">744</td></tr><tr><td style="width:60px;">2026-03-19</td><td class="red-up" style="width:60px;">2057</td><td class="red-up" style="width:60px;">2965</td><td class="red-up" style="width:60px;">749</td></tr><tr><td style="width:60px;">2026-03-18</td><td class="red-up" style="width:60px;">2064</td><td class="red-up" style="width:60px;">2986</td><td class="red-up" style="width:60px;">759</td></tr><tr><td style="width:60px;">±涨跌额</td><td style="width:60px;">-1</td><td class="red-up" style="width:60px;">+6</td><td style="width:60px;">-5</td></tr><tr><td style="width:60px;">±涨跌幅（%）</td><td style="width:60px;">-0.05</td><td class="red-up" style="width:60px;">+0.20</td><td style="width:60px;">-0.67</td></tr></tbody>
+        <table style="border-collapse:collapse; width:100%; min-width:640px; font-size:15px;">
+            <thead>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">日期</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">干散货运价指数（BDI）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">海岬型船运价指数（BCI）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">灵便型船运价指数（BHSI）</th></thead><tbody><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">船型</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">多个干散货船型</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">海岬型船，主要运输铁矿石、煤炭等大宗散货</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">灵便型船，常用于运输化肥、袋装货等</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-20</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2056</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2971</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">744</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-19</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2057</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2965</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">749</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-18</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2064</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2986</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">759</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">±涨跌额</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-1</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+6</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-5</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">±涨跌幅（%）</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-0.05</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+0.20</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-0.67</td></tr></tbody>
         </table>
     </div>
-    
-<div class="note-box">
-    <span class="red-note">注：涨跌额和涨跌幅为3月20日环比情况</span>
-</div>
+    <div class="table-footer">注：涨跌额和涨跌幅为3月20日环比情况</div>
 </div>
 <div class="card">
     <div class="table-section-title">📦 主要商品价格</div>
     <div class="meta"><span class="source">中国化工信息网</span></div>
     <div class="table-scroll">
-        <table>
-            <thead><tr><th>日期</th><th>荷兰TTF管道气主力合约期货结算价（美元/mmbtu）</th><th>大连商品交易所液化石油气主力合约期货结算价（元/吨）</th><th>乙二醇中国主港到岸价（美元/吨）</th><th>硫磺镇江港市场价（元/吨）</th><th>甲醇中国主港到岸价（美元/吨）</th></tr></thead>
-            <tbody><tr><td style="width:60px;">2026-03-23</td><td style="width:60px;">-</td><td class="red-up" style="width:60px;">6998</td><td class="red-up" style="width:60px;">657.50</td><td class="red-up" style="width:60px;">5685</td><td class="red-up" style="width:60px;">376</td></tr><tr><td style="width:60px;">2026-03-20</td><td class="red-up" style="width:60px;">19.97</td><td class="red-up" style="width:60px;">6527</td><td class="red-up" style="width:60px;">621.50</td><td class="red-up" style="width:60px;">5290</td><td class="red-up" style="width:60px;">371</td></tr><tr><td style="width:60px;">2026-03-19</td><td class="red-up" style="width:60px;">21.03</td><td class="red-up" style="width:60px;">6135</td><td class="red-up" style="width:60px;">630</td><td class="red-up" style="width:60px;">5075</td><td class="red-up" style="width:60px;">368.50</td></tr><tr><td style="width:60px;">±涨跌额</td><td style="width:60px;">-1.06</td><td class="red-up" style="width:60px;">+471</td><td class="red-up" style="width:60px;">+36</td><td class="red-up" style="width:60px;">+395</td><td class="red-up" style="width:60px;">+5</td></tr><tr><td style="width:60px;">±涨跌幅（%）</td><td style="width:60px;">-5.04</td><td class="red-up" style="width:60px;">+7.22</td><td class="red-up" style="width:60px;">+5.79</td><td class="red-up" style="width:60px;">+7.47</td><td class="red-up" style="width:60px;">+1.35</td></tr></tbody>
+        <table style="border-collapse:collapse; width:100%; min-width:640px; font-size:15px;">
+            <thead>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">日期</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">荷兰TTF管道气主力合约期货结算价（美元/mmbtu）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">大连商品交易所液化石油气主力合约期货结算价（元/吨）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">乙二醇中国主港到岸价（美元/吨）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">硫磺镇江港市场价（元/吨）</th>
+<th style="background:#1f4068; color:#fff; font-weight:600; padding:16px 12px; font-size:15px; text-align:center; border:1px solid #3e6190; width:96px; white-space:normal; word-wrap:break-word;">甲醇中国主港到岸价（美元/吨）</th></thead><tbody><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-23</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">6998</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">657.5</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">5685</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">376</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-20</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">19.97</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">6527</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">621.5</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">5290</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">371</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">2026-03-19</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">21.03</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">6135</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">630</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">5075</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">368.5</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">±涨跌额</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-1.06</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+471</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+36.0</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+395</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+5</td></tr><tr><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">±涨跌幅（%）</td><td  style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">-5.04</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+7.22</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+5.79</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+7.47</td><td class="change-up" style="padding:14px 10px; text-align:center; background:#fff; border:1px solid #dbe2ec; width:96px; height:auto; white-space:normal; word-wrap:break-word;">+1.35</td></tr></tbody>
         </table>
     </div>
-    
-<div class="note-box">
-    <span class="red-note">注：荷兰TTF管道气涨跌额和涨跌幅为3月20日环比情况；其他指标涨跌额和涨跌幅为3月23日环比情况</span>
+    <div class="table-footer">注：荷兰TTF管道气涨跌额和涨跌幅为3月20日环比情况；其他指标涨跌额和涨跌幅为3月23日环比情况</div>
 </div>
+<div class="footer">
+<div class="footer-slogan">担当 前瞻 专业</div>
+<a href="https://vip.cheminfo.cn" target="_blank" class="btn-footer">进入中国化工信息网查看更多动态</a>
 </div>
-
-    <!-- 底部样式 - 完全匹配参考页面 -->
-    <div class="footer">
-        <div class="footer-slogan">担当 前瞻 专业</div>
-        <a href="https://vip.cheminfo.cn" target="_blank" class="btn-footer">进入中国化工信息网查看更多动态</a>
-    </div>
 </div>
 </body>
 </html>
